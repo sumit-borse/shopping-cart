@@ -1,0 +1,25 @@
+div.header{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1%;
+    background-color: aqua;
+}
+div.website-name-div{
+    width: 25%;
+}
+div.name-div {
+    width: 35%;
+    margin-left: 30%;
+}
+
+div.cart-icon-div{
+    margin-left: 4%;
+    width: 5%;
+}
+img.cart-logo{
+    width: 40px;
+}
+
+h3#userName{
+    text-align: right;
+}
