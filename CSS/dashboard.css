@@ -1,3 +1,117 @@
+body{
+    margin: 0;
+}
+
 input.search{
     width: 22%;
 }
+.item-container{
+    background-color: honeydew;
+    width: 80%;
+    margin-left: 10%;
+    padding: 1%;
+}
+
+.item-detail-div{
+    width: 100%;
+    padding-bottom: 5%;
+    border-bottom: solid gray 2px;
+}
+
+
+.left-div{
+    margin-top: 2%;
+    width: 15%;
+}
+
+
+.middle-div{
+    word-break: break-all;
+    width: 50%;
+    padding-left: 5%;
+}
+.right-div{
+    width: 25%;
+    padding-left: 5%;
+}
+
+.middle-div , .left-div, .right-div{
+    display:inline-block;
+}
+
+.item-image{
+    width: 80%;
+    height: 250px;
+}
+
+
+a:link, a:visited {
+    color: cornflowerblue;
+    font: outline;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+  }
+  
+  a:hover, a:active {
+    color: rgb(0, 162, 255);
+  }
+
+  li, ul{
+    color: gray;
+    font: outline;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none; /* Remove default bullets */
+  }
+  
+  ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: gray; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+  .mrp{
+    font: outline;
+    font-size: medium;
+    font-weight: normal;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: line-through;
+    font-style: italic;
+    margin-right: 5%;
+    color: gray;
+  }
+
+  .actual-price{
+    font: outline;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+  }
+
+  .mrp, .discount{
+      display: inline-block;
+  }
+
+  .discount{
+      color: green;
+      font-weight: bolder;
+      font-style: italic;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .sticky + .item-container {
+    padding-top: 102px;
+  }
