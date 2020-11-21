@@ -1,5 +1,14 @@
 const items = [
     {
+        name : "SG Club XS (27 - 29 cm) Batting Pad  (White, Right Handed)",
+        price : "1,399",
+        discount : "10",
+        reating : "3.8",
+        highlights : ["Type: Batting Pad", "Color: White","Inner Material: Cashmilon","Face Material: Polyvinyl Chloride","Weight: 750 g"],
+        description : "",
+        imgName : "battingPad.jpeg"
+    },
+    {
         name : "Tima Cricket Kit Bag Canvas Kit Bag, 70cm x 33 cm x 19cm (Blue/Black) Kit Bag  (Blue, Kit Bag)",
         price : "1,399",
         discount : "40",
@@ -52,15 +61,6 @@ const items = [
         highlights : ["Type: Abdominal Guard","Ideal For: Men","For: Cricket","XL Size","XL Size","Left & Right Orientation"],
         description : "",
         imgName : "abdomanGaurd.jpeg"
-    },
-    {
-        name : "SG Club XS (27 - 29 cm) Batting Pad  (White, Right Handed)",
-        price : "1,399",
-        discount : "10",
-        reating : "3.8",
-        highlights : ["Type: Batting Pad", "Color: White","Inner Material: Cashmilon","Face Material: Polyvinyl Chloride","Weight: 750 g"],
-        description : "",
-        imgName : "battingPad.jpeg"
     },
     {
         name : "MANCO mEnwalkr ENDOS Thigh Guards Cricket Thigh Guard ",

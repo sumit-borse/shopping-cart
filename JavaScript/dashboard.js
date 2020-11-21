@@ -2,6 +2,8 @@ window.onload = () =>{
     var nameToDisplay = document.querySelector("h3#userName");
     var storedUserDetails = JSON.parse(localStorage.getItem("userDetails"));   
     nameToDisplay.innerHTML = "Welcome  " + storedUserDetails[0];
+
+
     var items = JSON.parse(localStorage.getItem("names"));
 
     for(i=0;i<items.length;i++){
@@ -21,7 +23,7 @@ window.onload = () =>{
         middleDiv.className="middle-div";
 
         var itemName = document.createElement("a");
-        itemName.href="#";
+        itemName.href="itemDetails.html?name="+items[i].name+"";
         itemName.textContent= items[i].name;
         itemName.className="item-name";
 
@@ -60,9 +62,10 @@ window.onload = () =>{
         var disc= document.createElement("h2");
         disc.className="discount";
         disc.textContent=discount+"%";
-
-        mrp.textContent=newPrice;
-        actualPrice.textContent=priceAfterDiscount;
+        mrp.innerHTML="&#8377;";
+        actualPrice.innerHTML="&#8377;";
+        mrp.textContent+=newPrice;
+        actualPrice.textContent+=priceAfterDiscount;
 
         rightDiv.appendChild(actualPrice);
         priceDiv.appendChild(mrp);
@@ -72,18 +75,4 @@ window.onload = () =>{
 
         document.getElementById("container").appendChild(node);
     }
-}
-
-
-window.onscroll = function() {myFunction()};
-
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset < sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
 }
