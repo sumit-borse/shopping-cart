@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="../CSS/tailwind.css" />
         <link rel="stylesheet" href="../CSS/header.css" />
         <link rel="stylesheet" href="../CSS/footer.css" />
+        <link rel="stylesheet" href="../CSS/footer.css" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <script src="../JavaScript/itemDetails.js"></script>
         <title>Item Details</title>
     </head>
@@ -20,13 +22,16 @@
                 <div class="inline-block">
                     <h3 id="userName" class="text-2xl font-bold"></h3>
                 </div>
-                <div class="inline-block float-right ml-5">
-                    <img src="../Images/cart.png" class="cart-logo"/>
+                <div class="inline-block float-right ml-5 mt-1 ">
+                    <a href="./cart.html">
+                        <i class="fas fa-shopping-cart cart-icon text-2xl text-white"><span class="cart-count" id="cartCount"></span></i>
+                        
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="item-container shadow md:shadow-2xl mt-10 mb-10" id="container">
+        <div class="item-container shadow md:shadow-2xl " id="container">
             
         </div>
         <div>

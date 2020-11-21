@@ -12,14 +12,18 @@ div.name-div {
     margin-left: 30%;
 }
 
-div.cart-icon-div{
-    margin-left: 4%;
-    width: 5%;
-}
-img.cart-logo{
-    width: 40px;
-}
-
 h3#userName{
     text-align: right;
+}
+
+.cart-count, .cart-icon{
+    vertical-align: top;
+}
+
+.cart-count{
+    color: #fc5800;
+    font-size: medium;
+    font-weight: bolder;
+    margin-left: 10%;
+
 }

@@ -63,7 +63,7 @@ const items = [
         imgName : "abdomanGaurd.jpeg"
     },
     {
-        name : "MANCO mEnwalkr ENDOS Thigh Guards Cricket Thigh Guard ",
+        name : "MANCO mEnwalkr ENDOS Thigh Guards Cricket Thigh Guard",
         price : "2,199",
         discount : "65",
         reating : "4",
@@ -73,10 +73,12 @@ const items = [
     }
 ];
 
+var itemList = [];
 
 
 window.onload = () => {
     localStorage.setItem("names", JSON.stringify(items));
+    localStorage.setItem("list", JSON.stringify(itemList));
 };
 
 updateUserDetails = () =>{

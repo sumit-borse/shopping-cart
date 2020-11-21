@@ -1,16 +1,29 @@
+var url=window.location.search;
+var name=url.replace('?name=','');
+var itemNames=name.replace(/%20/g, " ");
+var cartItem = JSON.parse(localStorage.getItem("list"));   
+
+if(itemNames==""){
+    url = localStorage.getItem("lastUrl");
+    var name=url.replace('?name=','');
+    var itemNames=name.replace(/%20/g, " ");
+}
+
+
 window.onload = () =>{
     var nameToDisplay = document.querySelector("h3#userName");
     var storedUserDetails = JSON.parse(localStorage.getItem("userDetails"));   
     nameToDisplay.innerHTML = "Welcome  " + storedUserDetails[0];
-    var url=window.location.search;
-    var name=url.replace('?name=','');
-    var itemNames=name.replace(/%20/g, " ");
+    localStorage.setItem("lastUrl", url);
 
+    var cartItemCount = document.querySelector("span#cartCount");
+    cartItemCount.innerHTML= cartItem.length;
+    
     var items = JSON.parse(localStorage.getItem("names"));
-
     items.forEach(element => {
         if(element.name==itemNames)
         {
+            
             var node = document.createElement("div");
             node.className="item-detail-div";
 
@@ -23,12 +36,40 @@ window.onload = () =>{
             itemImage.src = "../Images/"+element.imgName;
             imgDiv.appendChild(itemImage);
 
+
             var buttonDiv = document.createElement("div");
             buttonDiv.className="button-div";
+
+            var quantityDiv = document.createElement("div");
+            quantityDiv.className="quantity-div";
+
+            var quantityLabel = document.createElement("label");
+            quantityLabel.className = "quantity-label";
+            quantityLabel.textContent = "Select Qty.";
+
+            quantityDiv.appendChild(quantityLabel);
+
+            var quantitySelect = document.createElement("select");
+            quantitySelect.className = "quantity-select";
+            quantitySelect.name = "quantitySelect";
+            quantitySelect.id = "quantitySelect";
+            
+            for(var i=0;i<=5;i++){
+                var option = document.createElement("option");
+                option.className = "quantity-options";
+                option.value = i;
+                option.textContent = i;
+                quantitySelect.appendChild(option);
+            }
+            
+            quantityDiv.appendChild(quantitySelect);
+
+            buttonDiv.appendChild(quantityDiv);
 
             var addToCart = document.createElement("button");
             addToCart.className="add-to-cart"
             addToCart.textContent="Add To Cart";
+            addToCart.onclick = function() { addToCartClickFunction(); };
             var buyNow = document.createElement("button");
             buyNow.className="buy-now";
             buyNow.textContent="Buy Now";
@@ -46,6 +87,7 @@ window.onload = () =>{
             var itemName = document.createElement("h2");
             itemName.textContent= element.name;
             itemName.className="item-name";
+            itemName.id = "itemName";
             rightDiv.appendChild(itemName);
 
             var reatingDiv= document.createElement("div");
@@ -105,6 +147,21 @@ window.onload = () =>{
             highlightDiv.appendChild(highlightsList);
 
             rightDiv.appendChild(highlightDiv);
+
+            var descriptionDiv=document.createElement("div");
+            descriptionDiv.className="description-div";
+
+            var descriptionText=document.createElement("p");
+            descriptionText.className="description-text";
+            descriptionText.textContent=element.description;
+
+            var descriptionHeading = document.createElement("h2");
+            descriptionHeading.className = "description-heading";
+            descriptionHeading.textContent = "Description";
+            descriptionDiv.appendChild(descriptionHeading);
+            descriptionDiv.append(descriptionText);
+            rightDiv.appendChild(descriptionDiv);
+
             node.appendChild(rightDiv);
            
             document.getElementById("container").appendChild(node);
@@ -114,28 +171,27 @@ window.onload = () =>{
 }
 
 
-
-/*var middleDiv = document.createElement("div");
-            middleDiv.className="middle-div";
-
-            var itemName = document.createElement("a");
-            itemName.href="itemDetails.html?name="+element[i].name+"";
-            itemName.textContent= element[i].name;
-            itemName.className="item-name";
-
-            var details=element[i].highlights;
-
-            var highlightsList = document.createElement("ul");
-            highlightsList.className="highlights-list";
-            var listItem ;
-            details.forEach(element => {
-                listItem=document.createElement("li");
-                listItem.textContent=element;
-                listItem.className="list-items"
-                highlightsList.appendChild(listItem);
-            });
-
-            middleDiv.appendChild(itemName);
-            middleDiv.appendChild(highlightsList);
-            node.appendChild(middleDiv);
-*/
+addToCartClickFunction = () =>{
+    var quantity=document.getElementById("quantitySelect").value;
+    var flag=0;
+    var items={
+        name : "",
+        qty : 0
+    }
+    
+    cartItem.forEach(element =>{
+        if(element.name==itemNames){
+            element.qty = quantity;
+            flag=1;
+        }
+    });
+    if(flag==0){
+        items.name=itemNames;
+        items.qty=quantity;   
+        cartItem.push(items);    
+    }
+    localStorage.setItem("list", JSON.stringify(cartItem));
+    alert(itemNames+ " Added to Your Cart");
+    var cartItemCount = document.querySelector("span#cartCount");
+    cartItemCount.innerHTML= cartItem.length;
+}
