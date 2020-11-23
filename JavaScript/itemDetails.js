@@ -5,9 +5,16 @@ var cartItem = JSON.parse(localStorage.getItem("list"));
 
 if(itemNames==""){
     url = localStorage.getItem("lastUrl");
-    var name=url.replace('?name=','');
-    var itemNames=name.replace(/%20/g, " ");
+    if(itemNames!=""){
+        var name=url.replace('?name=','');
+        var itemNames=name.replace(/%20/g, " ");
+    }
+    else{
+        alert("Invalid Request");
+        location.replace("./index.html");
+    }
 }
+
 
 
 window.onload = () =>{
@@ -54,7 +61,7 @@ window.onload = () =>{
             quantitySelect.name = "quantitySelect";
             quantitySelect.id = "quantitySelect";
             
-            for(var i=0;i<=5;i++){
+            for(var i=1;i<=5;i++){
                 var option = document.createElement("option");
                 option.className = "quantity-options";
                 option.value = i;
@@ -73,6 +80,7 @@ window.onload = () =>{
             var buyNow = document.createElement("button");
             buyNow.className="buy-now";
             buyNow.textContent="Buy Now";
+            buyNow.onclick = function() { buyNowClickFunction(); };
 
             buttonDiv.appendChild(addToCart);
             buttonDiv.appendChild(buyNow);
@@ -194,4 +202,29 @@ addToCartClickFunction = () =>{
     alert(itemNames+ " Added to Your Cart");
     var cartItemCount = document.querySelector("span#cartCount");
     cartItemCount.innerHTML= cartItem.length;
+}
+
+buyNowClickFunction = () => {
+    var quantity=document.getElementById("quantitySelect").value;
+    var flag=0;
+    var items={
+        name : "",
+        qty : 0
+    }
+    
+    cartItem.forEach(element =>{
+        if(element.name==itemNames){
+            element.qty = quantity;
+            flag=1;
+        }
+    });
+    if(flag==0){
+        items.name=itemNames;
+        items.qty=quantity;   
+        cartItem.push(items);    
+    }
+    localStorage.setItem("list", JSON.stringify(cartItem));
+    var cartItemCount = document.querySelector("span#cartCount");
+    cartItemCount.innerHTML= cartItem.length;
+    location.replace("./buyNow.html")
 }

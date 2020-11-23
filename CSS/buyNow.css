@@ -1,0 +1,23 @@
+.total{
+    
+}
+
+.item-container{
+    width: 80%;
+    margin-left: 10%;
+    padding: 1%;
+}
+
+table, td, th{
+    border: solid black 1px;
+    padding: 1%;
+}
+
+tr:hover{
+    background-color: gray;
+}
+
+.buy-now-button{
+    width: 20%;
+    margin-left: 75%;
+}

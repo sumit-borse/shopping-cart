@@ -3,12 +3,12 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cart</title>
-        <link rel="stylesheet" href="../CSS/cart.css" />
+        <link rel="stylesheet" href="../CSS/buyNow.css" />
         <link rel="stylesheet" href="../CSS/tailwind.css" />
         <link rel="stylesheet" href="../CSS/header.css" />
         <link rel="stylesheet" href="../CSS/footer.css" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-        <script src="../JavaScript/cart.js"></script>
+        <script src="../JavaScript/buyNow.js"></script>
     </head>
     <body>
 
@@ -29,7 +29,30 @@
         </div>
 
         <div class="item-container shadow md:shadow-2xl mt-10 mb-10" id="container">
-            
+            <div class="table-div">
+                <table class="invoice-table w-full ">
+                    <thead>
+                        <th style="width: 60%;">Name</th>
+                        <th style="width: 10%;">Quantity</th>
+                        <th style="width: 10%;">MRP</th>
+                        <th style="width: 10%;">Discount</th>
+                        <th style="width: 10%;">Price</th>
+                    </thead>
+                    <tbody id="invoiceReacord">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-div">
+                <form action="#" method="post">
+                    <div class="flex flex-col mb-4">
+                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="address">Delivery Address</label>
+                        <textarea class="border py-2 px-3 text-grey-darkest" ></textarea>
+                    </div>
+                    <button class="buy-now-button block bg-green-300 hover:bg-green-600 font-bold text-white text-lg  p-4 rounded" type="submit" onclick="placeOrder()">Place Order</button>
+
+                </form>
+            </div>
         </div>
         <div>
             <div class="footer">
