@@ -20,12 +20,6 @@ window.onload = () =>{
         cartItemNames.forEach(cart => {
             if(element.name==cart.name)
             {
-                reacord = document.querySelector("table tbody#invoiceReacord");
-                row = document.createElement("tr");
-                column = document.createElement("td"), column.textContent = element.name, row.appendChild(column);
-                column = document.createElement("td"), column.textContent = cart.qty, row.appendChild(column);
-                column = document.createElement("td"), column.textContent = element.price, row.appendChild(column);
-                column = document.createElement("td"), column.textContent = element.discount+"%", row.appendChild(column);
                 var price=element.price.replace(',','');
                 var newPrice=parseFloat(price);
                 var discount=element.discount;
@@ -33,7 +27,15 @@ window.onload = () =>{
                 totalMrp+=newPrice*cart.qty;
                 totalPrice+=priceAfterDiscount*cart.qty;
                 totalDiscount+=parseInt(element.discount);
-                column = document.createElement("td"), column.textContent = priceAfterDiscount, row.appendChild(column);
+
+                reacord = document.querySelector("table tbody#invoiceReacord");
+                row = document.createElement("tr");
+                column = document.createElement("td"), column.textContent = element.name, row.appendChild(column);
+                column = document.createElement("td"), column.textContent = cart.qty, row.appendChild(column);
+                column = document.createElement("td"), column.textContent = newPrice*cart.qty, row.appendChild(column);
+                column = document.createElement("td"), column.textContent = element.discount+"%", row.appendChild(column);
+                
+                column = document.createElement("td"), column.textContent = priceAfterDiscount*cart.qty, row.appendChild(column);
                 reacord.appendChild(row);
             }
         });
